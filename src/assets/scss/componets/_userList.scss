@@ -1,0 +1,16 @@
+h3 {
+  text-align: center;
+  margin: 20px 0;
+}
+table {
+  tbody {
+    td:last-child {
+      display: flex;
+      justify-content: space-between;
+      i {
+        cursor: pointer;
+        font-size: 23px !important;
+      }
+    }
+  }
+}

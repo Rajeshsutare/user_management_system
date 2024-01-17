@@ -1,0 +1,9 @@
+
+@import "./variable/variable";
+@import "./componets/user-upsert";
+@import "./componets/userList";
+
+.secBg{
+    background: $background;
+    height: 100vh;
+}

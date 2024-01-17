@@ -1,0 +1,159 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-sm-12">
+        <div class="card">
+          <h4 class="formHeading">User Form</h4>
+          <div class="card-body">
+            <form action="" [formGroup]="userForm" (ngSubmit)="onUserForm()">
+              <div class="form-group">
+                <label for="firstName">first Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  class="form-control"
+                  formControlName="firstName"
+                />
+                <ng-container
+                  *ngIf="f['firstName'].touched && f['firstName'].invalid"
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="f['firstName'].hasError('required')"
+                  >
+                    first Name is Requiured*
+                  </small>
+                </ng-container>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  class="form-control"
+                  formControlName="lastName"
+                />
+                <ng-container
+                  *ngIf="f['lastName'].touched && f['lastName'].invalid"
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="f['lastName'].hasError('required')"
+                  >
+                    last Name is Requiured*
+                  </small>
+                </ng-container>
+              </div>
+              <div class="form-group">
+                <label for="address">Address</label>
+                <textarea
+                  name="address"
+                  id="address"
+                  cols="10"
+                  rows="3"
+                  class="form-control"
+                  formControlName="address"
+                ></textarea>
+                <ng-container
+                  *ngIf="f['address'].touched && f['address'].invalid"
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="f['address'].hasError('required')"
+                  >
+                    Address is Requiured*
+                  </small>
+                </ng-container>
+                <ng-container
+                  *ngIf="f['address'].dirty && f['address'].invalid"
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="f['address'].hasError('maxlength')"
+                  >
+                    Max length is 30 letters*
+                  </small>
+                </ng-container>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="form-control"
+                  formControlName="email"
+                  placeholder="xyz@gmail.com"
+                />
+
+                <ng-container *ngIf="f['email'].touched && f['email'].invalid">
+                  <small
+                    class="text-danger"
+                    *ngIf="f['email'].hasError('required')"
+                  >
+                    Email is Requiured*
+                  </small>
+                </ng-container>
+                <ng-container *ngIf="f['email'].dirty && f['email'].invalid">
+                  <small
+                    class="text-danger"
+                    *ngIf="f['email'].hasError('pattern')"
+                  >
+                    Please match Email Pattern*
+                  </small>
+                </ng-container>
+              </div>
+              <div class="form-group">
+                <label for="phone">phone</label>
+                <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  class="form-control"
+                  formControlName="phone"
+                />
+                <ng-container *ngIf="f['phone'].touched && f['phone'].invalid">
+                  <small
+                    class="text-danger"
+                    *ngIf="f['phone'].hasError('required')"
+                  >
+                    Phone is Requiured*
+                  </small>
+                </ng-container>
+                <ng-container *ngIf="f['phone'].dirty && f['phone'].invalid">
+                  <small
+                    class="text-danger"
+                    *ngIf="f['phone'].hasError('pattern')"
+                  >
+                    Onlyu allows 10 digits Number*
+                  </small>
+                </ng-container>
+              </div>
+              <div class="btns">
+                <button class="btn btn-warning" type="reset">Reset</button>
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  [disabled]="!userForm.valid"
+                  *ngIf="!isInEditMode"
+                >
+                  Submit
+                </button>
+                <button
+                  *ngIf="isInEditMode"
+                  class="btn btn-success"
+                  type="button"
+                  (click)="onUpdateUser()"
+                >
+                  Update
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

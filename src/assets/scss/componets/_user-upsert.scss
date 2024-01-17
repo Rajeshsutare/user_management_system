@@ -1,0 +1,20 @@
+section {
+  height: 100vh;
+
+  .card {
+    background: transparent;
+    border: 1px solid $text-dark;
+    box-shadow: 4px 4px 8px $text-dark;
+    .formHeading {
+      padding: 15px 0;
+      text-align: center;
+    }
+    .card-body {
+      padding-top: 0;
+    }
+  }
+  .btns {
+    display: flex;
+    justify-content: space-between;
+  }
+}
